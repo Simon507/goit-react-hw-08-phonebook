@@ -2,8 +2,8 @@ import { nanoid } from 'nanoid';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addContacts } from 'redux/operations';
-import { selectContactList } from '../../redux/selectors';
+import { addContacts } from '../../redux/contacts/operations';
+import { selectContactList } from '../../redux/contacts/selectors';
 
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';

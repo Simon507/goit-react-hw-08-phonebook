@@ -7,9 +7,9 @@ import {
   selectFindTarget,
   selectError,
   selectIsLoading,
-} from '../../redux/selectors';
+} from '../../redux/contacts/selectors';
 
-import { fetchContacts, deleteContacts } from 'redux/operations';
+import { fetchContacts, deleteContacts } from '../../redux/contacts/operations';
 
 import { ContactCard, ContactLst } from './contactList.styles';
 
