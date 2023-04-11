@@ -1,16 +1,24 @@
+import { GlobalStyle } from './GlobalStyle';
+import { Layout } from './Layout';
+
+import { Provider } from 'react-redux';
+import { store } from '../redux/store';
+
+import { ContactForm } from './form/ContactForm';
+import { Filter } from './filter/Filter';
+import { ContactList } from 'components/contactList/ContactList';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Provider store={store}>
+      <Layout>
+        <GlobalStyle />
+        <h1>Phonebook</h1>
+        <ContactForm />
+        <h2>Contacts</h2>
+        <Filter />
+        <ContactList />
+      </Layout>
+    </Provider>
   );
 };
