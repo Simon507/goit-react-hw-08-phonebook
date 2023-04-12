@@ -5,20 +5,15 @@ import { Helmet } from 'react-helmet';
 // import { store } from '../redux/store';
 
 import { ContactForm } from '../components/addContactsForm/ContactForm';
-import { Filter } from '../components/filter/Filter';
-import { ContactList } from '../components/contactList/ContactList';
 
-export const Contacts = () => {
+export const AddContact = () => {
   return (
     <>
       <Helmet>
-        <title>Your contacts</title>
+        <title>Add contacts</title>
       </Helmet>
-      <h1>Phonebook</h1>
+      <h1>Add contacts</h1>
       <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
     </>
   );
 };

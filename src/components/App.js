@@ -6,7 +6,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
-import { Contacts } from '../pages/Contacts';
+import { AddContact } from '../pages/AddContact';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -25,27 +25,31 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
         <Route
           path="/register"
           element={
             <RestrictedRoute
-              redirectTo="/contacts"
+              redirectTo="/allContacts"
               component={<RegisterPage />}
             />
           }
         />
         <Route
-          path="/login"
+          index
           element={
-            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+            <RestrictedRoute
+              redirectTo="/allContacts"
+              component={<LoginPage />}
+            />
           }
         />
         <Route
-          path="/contacts"
-          element={
-            <PrivateRoute redirectTo="/login" component={<Contacts />} />
-          }
+          path="/allContacts"
+          element={<PrivateRoute redirectTo="/" component={<HomePage />} />}
+        />
+        <Route
+          path="/addContacts"
+          element={<PrivateRoute redirectTo="/" component={<AddContact />} />}
         />
       </Route>
     </Routes>

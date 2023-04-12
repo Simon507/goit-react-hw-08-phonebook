@@ -1,5 +1,3 @@
-// import { nanoid } from 'nanoid';
-
 import { useSelector, useDispatch } from 'react-redux';
 
 import { addContacts } from '../../redux/contactList/operations';
@@ -37,7 +35,6 @@ export const ContactForm = () => {
       }}
       validationSchema={validationSchema}
       onSubmit={(values, actions) => {
-        // const id = nanoid(8);
         if (
           stateValue.some(
             item => item.name.toLowerCase() === values.name.toLowerCase()
@@ -49,6 +46,7 @@ export const ContactForm = () => {
         const addValue = { name: values.name, phone: values.number };
         dispatch(addContacts(addValue));
         actions.resetForm();
+        document.location = '/allContacts';
       }}
     >
       <Form>
