@@ -1,4 +1,4 @@
-import { findTarget } from '../../redux/contacts/filterSlice';
+import { findTarget } from '../../redux/contactList/filterSlice';
 import { useDispatch } from 'react-redux';
 
 import { FindBlock, FindSection } from './filter.styles';

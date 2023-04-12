@@ -1,10 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  fetchContacts,
-  addContacts,
-  deleteContacts,
-} from '../contacts/operations';
+import { fetchContacts, addContacts, deleteContacts } from './operations';
 
 const editingInitialState = {
   contactList: [],

@@ -1,9 +1,9 @@
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addContacts } from '../../redux/contacts/operations';
-import { selectContactList } from '../../redux/contacts/selectors';
+import { addContacts } from '../../redux/contactList/operations';
+import { selectContactList } from '../../redux/contactList/selectors';
 
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
@@ -37,7 +37,7 @@ export const ContactForm = () => {
       }}
       validationSchema={validationSchema}
       onSubmit={(values, actions) => {
-        const id = nanoid(8);
+        // const id = nanoid(8);
         if (
           stateValue.some(
             item => item.name.toLowerCase() === values.name.toLowerCase()
@@ -46,7 +46,7 @@ export const ContactForm = () => {
           return alert(`${values.name} is already exist in contacts`);
         }
 
-        const addValue = { name: values.name, phone: values.number, id: id };
+        const addValue = { name: values.name, phone: values.number };
         dispatch(addContacts(addValue));
         actions.resetForm();
       }}

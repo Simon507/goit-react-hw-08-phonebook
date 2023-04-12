@@ -1,26 +1,17 @@
-// import { useDispatch } from 'react-redux';
-// import { deleteTask } from 'redux/tasks/operations';
-// import css from './Task.module.css';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/operations';
+import { useAuth } from 'hooks';
+import css from './UserMenu.module.css';
 
-export const UserMenu = ({ id, text }) => {
-  //   const dispatch = useDispatch();
-  //   const handleDelete = () => dispatch(deleteTask(id));
+export const UserMenu = () => {
+  const dispatch = useDispatch();
+  const { user } = useAuth();
 
   return (
-    <div
-    //   className={css.wrapper}
-    >
-      <p
-      //   className={css.text}
-      >
-        {text}
-      </p>
-      <button
-        type="button"
-        //   className={css.button}
-        //   onClick={handleDelete}
-      >
-        Delete
+    <div className={css.wrapper}>
+      <p className={css.username}>Welcome, {user.name}</p>
+      <button type="button" onClick={() => dispatch(logOut())}>
+        Logout
       </button>
     </div>
   );

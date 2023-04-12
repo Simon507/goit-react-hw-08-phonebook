@@ -7,9 +7,9 @@ import {
   selectFindTarget,
   selectError,
   selectIsLoading,
-} from '../../redux/contacts/selectors';
+} from '../../redux/contactList/selectors';
 
-import { fetchContacts, deleteContacts } from '../../redux/contacts/operations';
+import { fetchContacts, deleteContacts } from 'redux/contactList/operations';
 
 import { ContactCard, ContactLst } from './contactList.styles';
 
@@ -43,7 +43,7 @@ export const ContactList = () => {
                 .includes(find.toString().toLowerCase()) && (
                 <ContactCard className="item" key={item.id}>
                   <p>{item.name}</p>
-                  <p>{item.phone}</p>
+                  <p>{item.number}</p>
                   <button onClick={() => onDelete(item.id)}>Delete</button>
                 </ContactCard>
               )
