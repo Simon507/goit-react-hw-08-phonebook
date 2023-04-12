@@ -24,7 +24,7 @@ export const App = () => {
     <b>Refreshing user...</b>
   ) : (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/goit-react-hw-08-phonebook" element={<Layout />}>
         <Route
           path="/register"
           element={
