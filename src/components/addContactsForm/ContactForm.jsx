@@ -46,7 +46,7 @@ export const ContactForm = () => {
         const addValue = { name: values.name, phone: values.number };
         dispatch(addContacts(addValue));
         actions.resetForm();
-        document.location = '/allContacts';
+        document.location = '/goit-react-hw-08-phonebook/allContacts';
       }}
     >
       <Form>
