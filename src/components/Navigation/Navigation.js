@@ -8,10 +8,16 @@ export const Navigation = () => {
   return (
     isLoggedIn && (
       <nav>
-        <NavLink className={css.link} to="/allContacts">
+        <NavLink
+          className={css.link}
+          to="/goit-react-hw-08-phonebook/allContacts"
+        >
           All contacts
         </NavLink>
-        <NavLink className={css.link} to="/addContacts">
+        <NavLink
+          className={css.link}
+          to="/goit-react-hw-08-phonebook/addContacts"
+        >
           Add contacts
         </NavLink>
       </nav>
