@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import { ContactList } from '../components/contactList/ContactList';
 import { Filter } from '../components/filter/Filter';
@@ -19,13 +19,13 @@ import { Filter } from '../components/filter/Filter';
 
 export default function Home() {
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <title>All contacts</title>
       </Helmet>
       <h1>All contacts</h1>
       <Filter />
       <ContactList />
-    </>
+    </HelmetProvider>
   );
 }
