@@ -12,7 +12,7 @@ export const AddContact = () => {
       <Helmet>
         <title>Add contacts</title>
       </Helmet>
-      <h1>Add contacts</h1>
+
       <ContactForm />
     </HelmetProvider>
   );

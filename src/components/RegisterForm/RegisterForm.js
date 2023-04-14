@@ -1,38 +1,88 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import css from './RegisterForm.module.css';
+
+import {
+  Box,
+  Button,
+  DialogContent,
+  DialogContentText,
+  TextField,
+} from '@mui/material';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
+    const form = e.target;
     dispatch(
       register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        name: form.name.value,
+        email: form.email.value,
+        password: form.password.value,
       })
     );
     form.reset();
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Username
-        <input type="text" name="name" />
-      </label>
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <DialogContent
+        sx={{
+          padding: 5,
+          border: 1,
+          borderRadius: 5,
+          gap: 15,
+          boxShadow: 20,
+        }}
+      >
+        <DialogContentText>Username</DialogContentText>
+        <TextField
+          autoFocus
+          margin="dense"
+          id="name"
+          label="Name"
+          type="text"
+          fullWidth
+          sx={{
+            marginBottom: 5,
+          }}
+          required
+        ></TextField>
+        <DialogContentText>E-mail</DialogContentText>
+        <TextField
+          margin="dense"
+          id="email"
+          label="Email"
+          type="email"
+          fullWidth
+          sx={{
+            marginBottom: 5,
+          }}
+          required
+        ></TextField>
+        <DialogContentText>Password</DialogContentText>
+        <TextField
+          margin="dense"
+          id="password"
+          label="Password"
+          type="password"
+          fullWidth
+          sx={{
+            marginBottom: 5,
+          }}
+          required
+        ></TextField>
+        <Box
+          sx={{
+            textAlign: 'center',
+          }}
+        >
+          <Button color="primary" size="large" variant="outlined" type="submit">
+            Register
+          </Button>
+        </Box>
+      </DialogContent>
     </form>
   );
 };

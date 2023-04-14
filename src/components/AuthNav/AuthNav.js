@@ -1,15 +1,33 @@
 import { NavLink } from 'react-router-dom';
-import css from './AuthNav.module.css';
+
+import Box from '@mui/material/Box';
+
+const linkStyle = {
+  color: 'white',
+  textDecoration: 'none',
+  fontSize: 25,
+  marginRight: 30,
+};
 
 export const AuthNav = () => {
   return (
-    <div>
-      <NavLink className={css.link} to="/goit-react-hw-08-phonebook/register">
-        Register
+    <Box
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        typography: 'body1',
+        '& > :not(style) + :not(style)': {
+          ml: 2,
+        },
+      }}
+    >
+      <NavLink style={linkStyle} to="/goit-react-hw-08-phonebook/register">
+        {'Register'}
       </NavLink>
-      <NavLink className={css.link} to="/goit-react-hw-08-phonebook">
+      <NavLink style={linkStyle} to="/goit-react-hw-08-phonebook">
         Log In
       </NavLink>
-    </div>
+    </Box>
   );
 };

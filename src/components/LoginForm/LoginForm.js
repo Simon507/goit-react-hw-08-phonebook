@@ -1,33 +1,75 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import css from './LoginForm.module.css';
+
+import {
+  Box,
+  Button,
+  DialogContent,
+  DialogContentText,
+  TextField,
+} from '@mui/material';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
+    const form = e.target;
     dispatch(
       logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        email: form.email.value,
+        password: form.password.value,
       })
     );
     form.reset();
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <DialogContent
+        sx={{
+          padding: 5,
+          border: 1,
+          borderRadius: 5,
+          gap: 15,
+          boxShadow: 20,
+        }}
+      >
+        <DialogContentText>Enter E-mail</DialogContentText>
+        <TextField
+          autoFocus
+          margin="dense"
+          id="email"
+          label="E-mail adress"
+          type="email"
+          fullWidth
+          sx={{
+            marginBottom: 5,
+          }}
+          required
+        ></TextField>
+        <DialogContentText>Enter password</DialogContentText>
+        <TextField
+          margin="dense"
+          id="password"
+          label="Password"
+          type="password"
+          fullWidth
+          sx={{
+            marginBottom: 5,
+          }}
+          required
+        ></TextField>
+        <Box
+          sx={{
+            textAlign: 'center',
+          }}
+        >
+          <Button color="primary" size="large" variant="outlined" type="submit">
+            Log In
+          </Button>
+        </Box>
+      </DialogContent>
     </form>
   );
 };

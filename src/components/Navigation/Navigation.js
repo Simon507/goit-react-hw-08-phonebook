@@ -1,6 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks';
-import css from './Navigation.module.css';
+
+const linkStyle = {
+  color: 'white',
+  textDecoration: 'none',
+  fontSize: 25,
+  marginRight: 30,
+};
+
+const linkActiveStyle = {
+  color: 'white',
+  textDecoration: 'underline',
+  fontSize: 25,
+  marginRight: 30,
+};
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
@@ -9,13 +22,13 @@ export const Navigation = () => {
     isLoggedIn && (
       <nav>
         <NavLink
-          className={css.link}
+          style={({ isActive }) => (isActive ? linkActiveStyle : linkStyle)}
           to="/goit-react-hw-08-phonebook/allContacts"
         >
           All contacts
         </NavLink>
         <NavLink
-          className={css.link}
+          style={({ isActive }) => (isActive ? linkActiveStyle : linkStyle)}
           to="/goit-react-hw-08-phonebook/addContacts"
         >
           Add contacts
