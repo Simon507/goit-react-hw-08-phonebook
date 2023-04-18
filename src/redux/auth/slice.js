@@ -38,6 +38,7 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, state => {
+        alert(`LogIn or registered please`);
         state.isRefreshing = false;
       }),
 });
